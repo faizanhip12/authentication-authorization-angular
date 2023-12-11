@@ -3,14 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SignInComponent } from './components/auth/sign-in/sign-in.component';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { ProductListComponent } from './components/products/product-list/product-list.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { ProductOffersComponent } from './components/products/product-offers/product-offers.component';
+import { ProductRarttingsComponent } from './components/products/product-rarttings/product-rarttings.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignInComponent,
+    SignUpComponent,
+    ProductListComponent,
+    ProductDetailsComponent,
+    ProductOffersComponent,
+    ProductRarttingsComponent,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
