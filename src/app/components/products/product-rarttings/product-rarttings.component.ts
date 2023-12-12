@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-rarttings.component.css']
 })
 export class ProductRarttingsComponent {
+  private unsavedChanges = false;
+  selectedRating: number | null = null;
 
+  rateProduct() {
+    if (this.selectedRating !== null) {
+      console.log('Rating:', this.selectedRating);
+      this.unsavedChanges = true;
+    }
+  }
+
+  saveChanges() {
+    console.log('Saving changes...');
+    this.unsavedChanges = false;
+  }
+
+  hasUnsavedChanges(): boolean {
+    return this.unsavedChanges;
+  }
 }
