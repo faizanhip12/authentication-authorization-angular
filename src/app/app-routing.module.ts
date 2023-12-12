@@ -5,10 +5,12 @@ import {FormsModule}   from '@angular/forms';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { AuthGuard } from './components/guard/auth.guard';
+import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 
 const routes: Routes = [
   {path: '', component:ProductListComponent, pathMatch:'full', canActivate: [AuthGuard]},
   {path: 'login', component:SignInComponent},
+  {path: 'signup', component:SignUpComponent},
 
 ];
 
