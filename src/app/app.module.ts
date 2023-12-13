@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
@@ -27,7 +27,8 @@ import { ProductRarttingsComponent } from './components/products/product-rarttin
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
