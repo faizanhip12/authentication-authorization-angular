@@ -11,6 +11,7 @@ import { ProductListComponent } from './components/products/product-list/product
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { ProductOffersComponent } from './components/products/product-offers/product-offers.component';
 import { ProductRarttingsComponent } from './components/products/product-rarttings/product-rarttings.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,13 +23,16 @@ import { ProductRarttingsComponent } from './components/products/product-rarttin
     ProductDetailsComponent,
     ProductOffersComponent,
     ProductRarttingsComponent,
-  
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class SignInComponent {
   loginForm?: any;
   
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router,private authService:AuthService) {}
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -21,19 +22,19 @@ export class SignInComponent {
   
   onSubmit(): void {
     console.log("this.loginForm",this.loginForm)
-    // if (this.loginForm.valid) {
-    //   const username = this.loginForm.get('username').value;
-    //   const password = this.loginForm.get('password').value;
+    if (this.loginForm.valid) {
+      const username = this.loginForm.get('username').value;
+      const password = this.loginForm.get('password').value;
 
-    //    // Call the authentication service's login method
-    //    if (this.authService.login(username, password)) {
-    //     // Navigate to the ProductListComponent upon successful login
-    //     this.router.navigate(['/product-list']);
-    //   } else {
-    //     // Handle authentication error (show error message, etc.)
-    //   }
+       // Call the authentication service's login method
+       if (this.authService.login(username, password)) {
+        // Navigate to the ProductListComponent upon successful login
+        this.router.navigate(['/product-list']);
+      } else {
+        // Handle authentication error (show error message, etc.)
+      }
 
     }
   }
-  
+}
 
