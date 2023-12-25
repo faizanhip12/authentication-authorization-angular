@@ -11,7 +11,8 @@ import { ProductListComponent } from './components/products/product-list/product
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { ProductOffersComponent } from './components/products/product-offers/product-offers.component';
 import { ProductRarttingsComponent } from './components/products/product-rarttings/product-rarttings.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './components/auth/auth.interceptor';
 
 
 @NgModule({
@@ -34,7 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 
   ],
-  providers: [],
+  providers: [
+
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

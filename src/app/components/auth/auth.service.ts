@@ -8,11 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 private baseUrl ="http://localhost:3000/api/v1/"
-  private isAuthenticated = false;
+  public isAuthenticated = false;
   private authSecretKey = 'Bearer Token';
 
   constructor(private http:HttpClient) { 
-    this.isAuthenticated = !!localStorage.getItem(this.authSecretKey);
+    this.isAuthenticated = !!localStorage.getItem('token');
   }
   
   login(username: string, password: string): Observable<any>{
@@ -49,11 +49,12 @@ private baseUrl ="http://localhost:3000/api/v1/"
 }
 
   isAuthenticatedUser(): boolean {
-    return this.isAuthenticated;
+    return this.isAuthenticated
   }
 
   logout(): void {
-    localStorage.removeItem(this.authSecretKey);
+    localStorage.removeItem('token');
     this.isAuthenticated = false;
+    
   }
 }

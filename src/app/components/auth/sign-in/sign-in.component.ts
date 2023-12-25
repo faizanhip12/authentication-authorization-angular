@@ -28,6 +28,8 @@ export class SignInComponent {
 
       this.authService.login(username, password).subscribe(res=>{
       console.log("res",res)
+        localStorage.setItem('token', res.generateToke);
+        this.authService.isAuthenticated = true
       this.router.navigate(['/product-list']);
       },err=>{
         console.log("error",err)

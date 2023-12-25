@@ -15,7 +15,9 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // Get the token from your authentication service or any other source
-    const token = 'YOUR_ACCESS_TOKEN';
+    // const token = 'YOUR_ACCESS_TOKEN';
+
+    const token = localStorage.getItem('token')
 
     // Clone the request and add the Authorization header with the token
     const authRequest = request.clone({
@@ -23,7 +25,8 @@ export class AuthInterceptor implements HttpInterceptor {
         Authorization: `Bearer ${token}`,
       },
     });
-
+    
+    console.log("authintrerceptor",authRequest)
     // Pass the cloned request to the next handler
     return next.handle(authRequest);
   }

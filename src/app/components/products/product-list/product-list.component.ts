@@ -12,13 +12,15 @@ export class ProductListComponent {
   productData : any;
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(
-      (data: any[]) => {
-        this.productData = data;
-      },
-      (error) => {
-        console.error('Error fetching products:', error);
-      }
-    );
+
+  console.log("ngonintngonintngonintngonintngonintngonintngonintngonintngonint")
+  setTimeout(() => {
+    this.productService.getProducts().subscribe(res=>{
+      console.log("resresresresresresresresres",res)
+      this.productData =res
+     })    
+  },2000);
+
+
   }
 }
